@@ -11,8 +11,9 @@ router.post('/login',(req,res)=>{
         res.redirect('/route/dashboard');
     }
     else{
-        res.end("invalid username");
+        res.render('index',{title:"login",data:"Please Enter Valid Credentials"});
     }
+
 })
 router.get('/dashboard',(req,res)=>{
     if(req.session.user)
@@ -29,7 +30,8 @@ router.get('/logout',(req,res)=>{
             console.log(err);
             res.send("Error");
         }else{
-            res.render('index',{title:"logout"});
+            res.redirect('/');
+            
         }
     })
 })

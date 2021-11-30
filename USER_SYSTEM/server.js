@@ -11,12 +11,12 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use(session({
     secret:uuidv4(),
     resave:false,
-    aveUnintialized:true
+    SaveUnintialized:true
 
 }));
 app.use('/route',router);
 app.set('view engine','ejs');
 app.use('/static',express.static(path.join(__dirname,'public')));
 app.get('/',(req,res)=>{
-    res.render('index',{title:"LOGIN SYSTEM"})
+    res.render('index',{title:"LOGIN SYSTEM",data:"Enter Your Details"})
 }).listen(port,()=>{console.log(`server is listening at port ${port}`)});
